@@ -9,6 +9,9 @@ PHP >= 5.4, PHP < 7
 ```javascript
 //How display image in Laravel 5.x
 {!! Html::image('img/logo.png') !!}
+
+<img src="{{ asset('images/ImageName.jpg')}}" alt=""/>
+
 ```
 
 
@@ -36,6 +39,11 @@ PHP >= 5.4, PHP < 7
     </label>
 	</li>
 @endforeach
+```
+
+## How to display content line break in laravel
+```
+	<?php echo nl2br($row->message); ?>
 ```
 
 > **Note:** start up
