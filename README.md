@@ -46,4 +46,51 @@ PHP >= 5.4, PHP < 7
 	<?php echo nl2br($row->message); ?>
 ```
 
+
+
+##Getting a data from mySQL in Laravel
+```
+//File: xyzController.php
+    public function vendorsList() 
+    {
+		//$model = xyzVendors::where('id', '=', $id)->get();
+		//$result = DB::table('xyz_vendors')->paginate(15);
+		$result = DB::table('xyz_vendors')->simplePaginate(5);
+		
+        $page_title = "xyz Vendors";
+        
+        return view('front.association.xyz.vendorlist', compact('result', 'page_title'));
+    }
+```
+
+```
+//routes.php
+Route::get('rfp/vendors/list','RFPController@vendorsList');
+```
+
+
+```
+//File: xyzview.blade.php
+    <table class="table table-bordered">
+		<tbody>
+       @foreach($result as $data)
+			
+			<tr>
+			
+				<td>{{ $data->id }}</td> 
+				<td>{{ $data->rfp_id }}</td> 
+				<td>{{ $data->created_at }}</td> 
+			</tr>
+	   
+	   @endforeach
+	</tbody>
+	</table>
+```
+
+
+
+
+
+
+
 > **Note:** start up
