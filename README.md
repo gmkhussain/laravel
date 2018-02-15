@@ -93,4 +93,20 @@ Route::get('rfp/vendors/list','RFPController@vendorsList');
 
 
 
+
+
+
+## Xampp Warning: Module 'openssl' already loaded in line 0
+```
+* Open xampp -> PHP -> php.ini
+* Open the file php.ini in any text editor
+* Press <code>CTRL + F</code> and Search for openssl
+* Comment the line <code>extension=php_openssl.dll</code> by placing a semi-colon at the beginning: <code>;extension=php_openssl.dll</code>
+
+Note : If you want to enable it again remove the semicolon
+```
+
+
+
+
 > **Note:** start up
