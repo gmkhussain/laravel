@@ -90,6 +90,11 @@ Route::get('rfp/vendors/list','RFPController@vendorsList');
 
 
 
+## How to get Laravel 5 controller name in view
+```javascript
+	{{ dd(request()->route()->getAction()) }}
+```
+
 
 
 
