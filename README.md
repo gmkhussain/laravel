@@ -114,4 +114,22 @@ Note : If you want to enable it again remove the semicolon
 
 
 
+
+
+
+
+## How to migrate database in Laravel ?
+
+Go to Laravel folder and run these commands
+```javascript
+php artisan migrate
+```
+
+rollback migration first which will destroy last migration tables with all data
+```javascript
+php artisan migrate:rollback
+```
+
+
+
 > **Note:** start up
