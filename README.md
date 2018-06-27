@@ -132,4 +132,18 @@ php artisan migrate:rollback
 
 
 
+
+
+## Counter / Incrementing variable for loop in Laravel blade template
+```html
+@foreach($categories as $key => $category)
+  <li @if ($key === 0) class="active" @endif>
+    <a href="#tab_c{{$key+1}}" role="tab" data-toggle="tab">
+      {{$category->name}}
+    </a>
+  </li>
+@endforeach
+```
+
+
 > **Note:** start up
