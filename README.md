@@ -146,4 +146,62 @@ php artisan migrate:rollback
 ```
 
 
-> **Note:** start up
+## Compiling SASS/SCSS with Laravel Mix
+
+### Browsersync with Laravel Mix
+
+1: Install npm dependencies:
+```
+$ npm install browser-sync browser-sync-webpack-plugin webpack-dev-ser
+```
+
+2: Open webpack.mix.js and append following code:
+```
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+mix.webpackConfig({
+  plugins: [
+    new BrowserSyncPlugin({
+      open: 'external',
+      host: 'projectname.local',
+      proxy: 'projectname.local',
+      files: ['resources/views/**/*.php', 'app/**/*.php', 'routes/**/*.php']
+    })
+```
+
+That’s it for the configuration!
+<b>Note</b>: see Virtual Host configuration details(#xampp-virtual-host-for-sub-directory)
+
+3: To Webpack and then Browsersync your app:
+```
+$ npm run watch
+```
+
+
+
+
+### XAMPP Virtual Host for sub directory
+Point all domains to root folder and one/specific domain to a subfolder in the root folder
+
+1. Open this file.
+<code>I:\xampp\apache\conf\extra\httpd-vhosts.conf</code>
+
+2. Paste this code
+```html
+<VirtualHost *:80>
+    DocumentRoot "I:/xampp/htdocs/projects"
+    ServerName _default_
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@doamin.com
+    DocumentRoot "I:/xampp/htdocs/projects/myProjectName/"
+    ServerName student.breakoutedu.com
+    ErrorLog "logs/sub.domin.com-error.log"
+    CustomLog "logs/sub.domin.com-common.log" common
+</VirtualHost>
+```
+
+3. Open this file.
+<code>C:\Windows\System32\drivers\etc\hosts</code>
+
+4. Paste this code <code>127.0.0.1 sub.domin.com</code>
