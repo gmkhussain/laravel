@@ -205,3 +205,12 @@ Point all domains to root folder and one/specific domain to a subfolder in the r
 <code>C:\Windows\System32\drivers\etc\hosts</code>
 
 4. Paste this code <code>127.0.0.1 sub.domin.com</code>
+
+
+
+
+### Variable value split into two variables
+
+```php
+list($one, $two) = explode("-", "59-l<3veR!f@t", 2);
+```
