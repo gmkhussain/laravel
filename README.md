@@ -15,6 +15,49 @@ PHP >= 5.4, PHP < 7
 ```
 
 
+
+
+
+### Composer Update Laravel, Update or install my vendors after clone project repo
+
+Open commandline and type
+```composer install```
+
+Note: check ```storage``` folder has following folders
+```
+framework
+  cache
+  sessions
+  testing
+  views
+logs
+```
+
+
+
+
+
+
+### SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) (SQL: select * from `users` where `email` = zahid@golpik.com limit 1)
+
+Check yout ```.env`` file, make sure you have enter correct values for SQL database
+
+```javascript
+// ...
+  DB_DATABASE=portfolio
+  DB_USERNAME=root
+  DB_PASSWORD=
+// ...
+```
+
+
+
+
+
+
+
+
+
 ## How to check user is logged in Laravel
 ```html
 <script>
