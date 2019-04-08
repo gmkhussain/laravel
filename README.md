@@ -36,9 +36,18 @@ logs
 
 
 
+### laravel\vendor/symfony/polyfill-mbstring/bootstrap.php): failed to open stream: No such file or directory in 
+
+Open command line and run
+```
+composer update --no-scripts  
+```
+this issue will fix.
 
 
-### SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) (SQL: select * from `users` where `email` = zahid@golpik.com limit 1)
+
+
+### SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) (SQL: select * from `users` where `email` = user@domain.com limit 1)
 
 Check yout ```.env`` file, make sure you have enter correct values for SQL database
 
@@ -256,4 +265,75 @@ Point all domains to root folder and one/specific domain to a subfolder in the r
 
 ```php
 list($one, $two) = explode("-", "59-l<3veR!f@t", 2);
+```
+
+
+
+
+
+### How to migrate Laravel database
+First make sure you have created migration file under
+
+```
+{project-name}/database
+ =====================/factories
+ =====================/migrations
+ =====================/seeds
+```
+
+Open cmd and run this line.
+```
+ php artisan migrate
+```
+
+
+
+#### Syntax error or access violation: 1071 Specified key was too long;
+
+We have to do is edit ```{Project-name}/App/Providers/AppServiceProvider.php``` file.
+
+
+```
+use Illuminate\Support\Facades\Schema; // <-- add this  line
+
+public function boot()
+{
+    Schema::defaultStringLength(191); // <-- add this  line
+}
+```
+
+
+
+
+
+#### Base table or view already exists: 1050 Table 'password_resets' already exists
+
+It will happend when migrate and it broke half way.
+
+Run this command
+```
+php artisan migrate:fresh
+```
+ It will drop all the existing tables without rolling back or calling down method of migrations.
+ 
+ 
+ 
+ 
+ 
+#### import dummy data
+
+```
+  php artisan db:seed
+```
+
+
+
+
+#### The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths.
+
+The key will be written automatically in your ```.env``` file.
+APP_KEY=YOUR_GENERATED_KEY
+
+```
+php artisan key:generate
 ```
