@@ -231,6 +231,98 @@ $ npm run watch
 
 
 
+
+
+
+
+### How to create custom route or new page in laravel 5.0
+
+1. Open ```routes.php``` file ```app/Http/routes.php```
+
+
+```php
+...
+Route::get('/new-page', 'NewPageController@NewPage');
+...
+```
+
+2. Open ```app\Http\Controllers``` and create file with same name of routes ```ProductQouteController.php```
+
+2.1 Add following code
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use Auth,
+    Config;
+use App\Cart;
+use App\CartQuote;
+use App\General;
+use View;
+use DB;
+
+class NewPageController extends Controller {
+
+    private $sessionId;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+
+	}
+
+    public function NewPage() {
+        return view('front.newpage.index');
+    }
+}
+```
+
+
+3. Open ```resources\views\front\newpage``` Create ```index.blade.php``` file
+3.1 
+	```html
+		// Write your code or markup etc..
+	```
+	
+4. Open this url on your browser ```http://localhost/project-name/new-page```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### XAMPP Virtual Host for sub directory
 Point all domains to root folder and one/specific domain to a subfolder in the root folder
 
