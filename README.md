@@ -18,6 +18,22 @@ PHP >= 5.4, PHP < 7
 
 
 
+### Failed opening required ../vendor/autoload.php
+```
+Warning: require(D:\xampp\htdocs\projects\your-project-name\backend/laravel/vendor/autoload.php): failed to open stream: No such file or directory in D:\xampp\htdocs\projects\your-project-name\backend\index.php on line 24
+
+Fatal error: require(): Failed opening required 'D:\xampp\htdocs\projects\your-project-name\backend/laravel/vendor/autoload.php' (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\projects\your-project-name\backend\index.php on line 24
+```
+
+
+
+1. ```composer install``` run this command
+
+
+2. ```composer dump-autoload``` This command will clean up all compiled files and their paths.
+
+
+
 ### Composer Update Laravel, Update or install my vendors after clone project repo
 
 Open commandline and type
