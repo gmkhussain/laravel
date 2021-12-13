@@ -445,3 +445,33 @@ APP_KEY=YOUR_GENERATED_KEY
 ```
 php artisan key:generate
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+## Laravel Passport Key path oauth-public.key does not exist or is not readable
+
+- Make sure ```laravel/passport``` installed
+
+```composer require laravel/passport```
+
+- Register the service provider inside config/app.php
+```Laravel\Passport\PassportServiceProvider::class,``
+
+
+- Run the migrations
+```php artisan migrate```
+
+- Generate the keys using
+```php artisan passport:install```
+
+- Check now!
+
