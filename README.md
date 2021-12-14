@@ -475,3 +475,28 @@ php artisan key:generate
 
 - Check now!
 
+
+
+
+
+
+
+
+
+
+
+
+
+## Git Stash: How to Save Your Changes Temporarily
+
+- ```git stash```
+- Do other codes...
+- Check stash ```git stash list```
+  ```js
+  stash@{0}: WIP on design: e4c0g98... Some changes ABC
+  stash@{1}: WIP on design: fex0u57... Some changes XYZ
+  ```
+- Megre stash changes ```git stash apply```
+
+- apply one ```git stash apply 1``` //  stash@{1}
+- remove one ```git stash pop 1```
